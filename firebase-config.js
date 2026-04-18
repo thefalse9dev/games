@@ -23,5 +23,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+const _isPlaceholderConfig =
+  firebaseConfig.apiKey === "YOUR_API_KEY" ||
+  firebaseConfig.databaseURL.includes("YOUR_PROJECT");
+
+if (!_isPlaceholderConfig) {
+  firebase.initializeApp(firebaseConfig);
+}
+const db = _isPlaceholderConfig ? null : firebase.database();

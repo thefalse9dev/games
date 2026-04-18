@@ -8,12 +8,21 @@
 let currentUser = null;   // "sai" | "lavu"
 let playIndex = 0;        // index of the card being played
 
+// ---- Constants ----
+const FIREBASE_TIMEOUT_MS = 8000; // Time to wait before showing a connection error hint
+
 // ---- In-memory data cache (kept in sync by Firebase listeners) ----
 let _flashcards = [];
 let _answers = {};
 
 // ---- Firebase real-time listeners ----
 function initFirebase() {
+  // If Firebase is not configured, show the error hint immediately
+  if (!db) {
+    document.getElementById("loading-error").classList.remove("hidden");
+    return;
+  }
+
   let flashcardsReady = false;
   let answersReady = false;
 
@@ -37,12 +46,12 @@ function initFirebase() {
     checkReady();
   });
 
-  // Show a hint if Firebase doesn't respond within 8 seconds
+  // Show a hint if Firebase doesn't respond in time
   setTimeout(function () {
     if (!flashcardsReady || !answersReady) {
       document.getElementById("loading-error").classList.remove("hidden");
     }
-  }, 8000);
+  }, FIREBASE_TIMEOUT_MS);
 }
 
 // ---- Storage helpers (backed by Firebase) ----
