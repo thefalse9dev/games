@@ -12,15 +12,15 @@
    7. Replace the placeholder values below with your project's config
    ============================================================ */
 
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
+   const firebaseConfig = {
+    apiKey: "AIzaSyCm4y_ZqgkXGJXNa9hj6icYzTIpoBYmbw8",
+    authDomain: "this-or-that-dbe87.firebaseapp.com",
+    projectId: "this-or-that-dbe87",
+    storageBucket: "this-or-that-dbe87.firebasestorage.app",
+    messagingSenderId: "281208426210",
+    appId: "1:281208426210:web:2221b7b9b3439f166e58bb",
+    measurementId: "G-GJL5N365LJ"
+  };
 
 // Initialize Firebase
 const _isPlaceholderConfig =
