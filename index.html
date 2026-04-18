@@ -7,8 +7,19 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Loading Screen (shown while Firebase loads) -->
+  <div id="loading-screen" class="screen active">
+    <h1>This or That 🎴</h1>
+    <p class="loading-text">Loading&hellip;</p>
+    <div class="spinner"></div>
+    <p id="loading-error" class="hidden loading-hint">
+      Could not connect to the database. Make sure Firebase is configured in
+      <code>firebase-config.js</code>.
+    </p>
+  </div>
+
   <!-- Welcome / Login Screen -->
-  <div id="welcome-screen" class="screen active">
+  <div id="welcome-screen" class="screen">
     <h1>This or That 🎴</h1>
     <p>Who's playing?</p>
     <div class="login-buttons">
@@ -86,6 +97,10 @@
     <button class="back-btn" onclick="showScreen('menu-screen')">← Back to Menu</button>
   </div>
 
+  <!-- Firebase SDK (compat builds for vanilla JS) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
