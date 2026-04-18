@@ -25,9 +25,11 @@ function initFirebase() {
 
   let flashcardsReady = false;
   let answersReady = false;
+  let initialLoadComplete = false;
 
   function checkReady() {
-    if (flashcardsReady && answersReady) {
+    if (flashcardsReady && answersReady && !initialLoadComplete) {
+      initialLoadComplete = true;
       // Data loaded — hide loading screen, show welcome
       document.getElementById("loading-screen").classList.remove("active");
       document.getElementById("welcome-screen").classList.add("active");
