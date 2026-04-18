@@ -15,6 +15,7 @@
    const firebaseConfig = {
     apiKey: "AIzaSyCm4y_ZqgkXGJXNa9hj6icYzTIpoBYmbw8",
     authDomain: "this-or-that-dbe87.firebaseapp.com",
+    databaseURL: "https://this-or-that-dbe87-default-rtdb.firebaseio.com",
     projectId: "this-or-that-dbe87",
     storageBucket: "this-or-that-dbe87.firebasestorage.app",
     messagingSenderId: "281208426210",
@@ -25,6 +26,7 @@
 // Initialize Firebase
 const _isPlaceholderConfig =
   firebaseConfig.apiKey === "YOUR_API_KEY" ||
+  !firebaseConfig.databaseURL ||
   firebaseConfig.databaseURL.includes("YOUR_PROJECT");
 
 if (!_isPlaceholderConfig) {
